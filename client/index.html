@@ -17,9 +17,7 @@
   <script>
     let dataToRender;
     window.addEventListener('message', ({ data }) => {
-      console.log(data.slotsConfig);
       dataToRender = [data.slotsConfig, data.bidderList].flat(1);
-      console.log('!!!!!!!!!', dataToRender);
       const table = document.body.querySelector('#data-table');
       const tbody = table.querySelector('tbody');
 
