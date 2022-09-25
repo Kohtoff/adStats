@@ -6,7 +6,6 @@
 Install the dependencies and devDependencies and start the server.
 
 ```sh
-cd ./server
 npm i
 npm start -w server
 ```
