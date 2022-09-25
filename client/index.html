@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script></script>
+  </head>
+  <body>
+    <table id="data-table">
+      <tr>
+        <th>Ad Clients Info</th>
+      </tr>
+    </table>
+  </body>
+  <script>
+    let dataToRender;
+    window.addEventListener('message', ({ data }) => {
+      console.log(data.slotsConfig);
+      dataToRender = [data.slotsConfig, data.bidderList].flat(1);
+      console.log('!!!!!!!!!', dataToRender);
+      const table = document.body.querySelector('#data-table');
+      const tbody = table.querySelector('tbody');
+
+      dataToRender.forEach((rowData) => {
+        const row = tbody.insertRow();
+
+        Object.values(rowData).forEach((cellData) => {
+          if(typeof(cellData) === 'object') cellData = JSON.stringify(cellData)
+          const cell = row.insertCell();
+          cell.textContent = cellData;
+          row.appendChild(cell)
+        });
+        tbody.appendChild(row)
+      });
+    });
+  </script>
+
+</html>
+
+<style>
+  body{
+    font-size: 15px;
+  }
+
+
+  tr,
+  td,
+  th {
+    border: 1px solid black;
+    text-align: center;
+  }
+  table {
+    width: 100%;
+  }
+</style>
