@@ -21,5 +21,5 @@ After that start the server with following command:
 ```sh
 npm start -w server
 ```
-> Note: Script should be injected using [app.requestly.io]
+> Note: Script should be injected using [app.requestly.io](https://app.requestly.io/rules/#sharedList/1664137681251-Danil-shared-list-9-25-2022)
 
